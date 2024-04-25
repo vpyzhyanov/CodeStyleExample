@@ -1,10 +1,14 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
- * Пример стиля кода<br>
+ * Пример правил применяемых к стилю кода<br>
  * Строгих ограничений нет, главная цель форматирования - хорошая читаемость кода.
  * @author vpyzhyanov
  * @since 16.10.2023
