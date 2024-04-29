@@ -10,9 +10,11 @@ import java.util.stream.Collectors;
 /**
  * Пример правил применяемых к стилю кода<br>
  * Строгих ограничений нет, главная цель форматирования - хорошая читаемость кода.
+ *
  * @author vpyzhyanov
  * @since 16.10.2023
  */
+@SuppressWarnings("ALL")
 public class CodeStyleExample {
     private Collection<String> collection = new ArrayList<>();
 
@@ -25,6 +27,19 @@ public class CodeStyleExample {
         return collection.isEmpty()
                 ? "Пустая коллекция"
                 : "Коллекция состоит из %d элементов".formatted(collection.size());
+    }
+
+    /**
+     * <b>Пример форматирования множества логических условий</b>
+     * <p><i>Логические операторы "&&" и "||" начинаются с новой строки</i></p>
+     */
+    public int manyLogicConditionsFormat() {
+        if (collection != null
+            && !collection.isEmpty()
+            && collection.size() > 1) {
+            return collection.size() - 1;
+        }
+        return 0;
     }
 
     /**
@@ -48,10 +63,10 @@ public class CodeStyleExample {
     public void varProhibited(Integer number, List<Integer> list) {
 
         // определение TreeMap без var
-        SortedMap<String, Function<?,?>> sortedMap = new TreeMap<>();
+        SortedMap<String, Function<?, ?>> sortedMap = new TreeMap<>();
         // определение TreeMap с использованием var (допустимо)
         // В чём тут недостаток?
-        var sortedMapWithVar = new TreeMap<String, Function<?,?>>();
+        var sortedMapWithVar = new TreeMap<String, Function<?, ?>>();
 
         // Запрещено:
         var num = getNumber();
@@ -85,7 +100,7 @@ public class CodeStyleExample {
 
 //    Вспомогательные методы
     private Long[] getElements(Long num) {
-        return new Long[] {getNumber()};
+        return new Long[]{getNumber()};
     }
 
     private Long getNumber() {
