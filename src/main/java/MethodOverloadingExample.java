@@ -4,6 +4,7 @@
  * @author Пыжьянов Вячеслав
  * @since 25.04.2024
  */
+@SuppressWarnings("ALL")
 public class MethodOverloadingExample {
     public class A {}
     public class B extends A {}

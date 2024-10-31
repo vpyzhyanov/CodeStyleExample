@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import java.util.Map;
  * @author Пыжьянов Вячеслав
  * @since 25.04.2024
  */
+@SuppressWarnings("ALL")
 public class ChangeParameterExample {
 
     /**
@@ -36,13 +38,18 @@ public class ChangeParameterExample {
     public <T, V> Map<T, V> union(Map<T, V> map1, Map<T, V> map2) {
         /*
          Обратите внимание, что создаётся Map сразу нужного размера,
-         притом с учётом load factor, следовательно не произойдёт увеличения
+         притом с учётом load factor, следовательно, не произойдёт увеличения
          размера коллекции во время добавления элементов
         */
         Map<T, V> result = HashMap.newHashMap(map1.size() + map2.size());
         result.putAll(map1);
         result.putAll(map2);
-        return result;
+        // Неизменяемая коллекция защитит от многих проблем
+        return Collections.unmodifiableMap(result);
+        /*
+         Как правило, надо стараться возвращать неизменяемые объекты, это безопасно,
+         разумеется если это не противоречит задаче
+        */
     }
 
     /**
